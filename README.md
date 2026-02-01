@@ -2,7 +2,7 @@
 
 Hello, my name is **Vincent F**, and this repository documents my **data analytics learning and project portfolio**.
 
-This repository includes my full progression in data analytics — from **daily SQL and Python practice** to **completed Power BI dashboards and analytical projects**. The goal is to demonstrate not only technical skills, but also **structured thinking, consistency, and business-focused analysis**.
+This repository includes my full progression in data analytics — from **daily SQL and Python practice** to **completed Power BI dashboards and analytical projects**. The goal is to demonstrate not only technical skills, but also **how willing I am to learn more about the field and broaden my scope!**
 
 ## Repository Structure
 
