@@ -13,7 +13,9 @@ Today’s practice session is focused on **writing clear, well-structured SQL qu
 - Strengthen CTE usage
 - Improve SQL readability and organization
 - Reinforce business-oriented query thinking
------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------
+
 ### Problem — 2026-02-01 — #1
 **Description:**  
 Count 2024 encounters by provider specialty using a 2‑CTE pipeline.
@@ -125,7 +127,10 @@ FROM specialty_counts
 ORDER BY encounter_2024_count DESC;
 ```
 INCORRECT
-----------------------------------------------------------------------------------------------------------------------------### Problem — 2026-02-01 — #2
+
+----------------------------------------------------------------------------------------------------------------------------
+
+### Problem — 2026-02-01 — #2
 **Description:**  
 Count abnormal 2024 lab results by patient gender using a 2‑CTE pipeline.
 
@@ -212,5 +217,6 @@ FROM gender_counts
 ORDER BY abnormal_2024_count DESC;
 ```
 INCORRECT
+
 ----------------------------------------------------------------------------------------------------------------------------
 
