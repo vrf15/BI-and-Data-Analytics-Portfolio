@@ -583,3 +583,102 @@ ORDER BY completed_2024_cost DESC;
 
 ----------------------------------------------------------------------------------------------------------------------------
 
+### Problem — 2026-02-01 — #8
+**Description:**  
+Count completed 2024 appointments by provider specialty using a 2‑CTE pipeline.
+
+**Tables:**  
+- Appointments  
+- Providers  
+
+**Columns:**  
+**Appointments**  
+- appt_id  
+- patient_id  
+- provider_id  
+- appt_date  
+- appt_status  
+- visit_type  
+
+**Providers**  
+- provider_id  
+- provider_name  
+- specialty  
+
+**Requirements:**  
+- CTE #1: Filter Appointments to completed 2024 visits, keep provider_id + appt_id  
+- CTE #2: Join to Providers, group by specialty, count appointments  
+- Final: Return specialty + completed_2024_count, order DESC  
+
+---
+
+**Final SQL Solution: My Response**  
+```sql
+WITH completed_2024 AS (
+    SELECT
+        provider_id,
+        appt_id
+    FROM Appointments
+    WHERE
+        appt_status = 'Completed'
+        AND appt_date BETWEEN '2024-01-01' AND '2024-12-31'
+),
+
+specialty_counts AS (
+    SELECT
+        p.specialty,
+        COUNT(c.appt_id) AS completed_2024_count
+    FROM Providers p
+    INNER JOIN completed_2024 c
+        ON c.provider_id = p.provider_id
+    GROUP BY p.specialty
+)
+
+SELECT
+    specialty,
+    completed_2024_count
+FROM specialty_counts
+ORDER BY completed_2024_count;
+```
+
+---
+
+**Final SQL Solution: Correct Answer**  
+```sql
+WITH completed_2024 AS (
+    SELECT
+        provider_id,
+        appt_id
+    FROM Appointments
+    WHERE
+        appt_status = 'Completed'
+        AND appt_date BETWEEN '2024-01-01' AND '2024-12-31'
+),
+
+specialty_counts AS (
+    SELECT
+        p.specialty,
+        COUNT(c.appt_id) AS completed_2024_count
+    FROM completed_2024 c
+    INNER JOIN Providers p
+        ON c.provider_id = p.provider_id
+    GROUP BY p.specialty
+)
+
+SELECT
+    specialty,
+    completed_2024_count
+FROM specialty_counts
+ORDER BY completed_2024_count DESC;
+```
+
+---
+
+**Feedback**  
+- Excellent structure: both CTEs are syntactically correct and properly separated with a comma.  
+- Join direction is correct and matches the requirement.  
+- GROUP BY is correct and uses the provider specialty cleanly.  
+- Only issue: **ORDER BY should be DESC**, per the prompt.  
+- Otherwise, this is a clean, production‑ready 2‑CTE pipeline.  
+
+----------------------------------------------------------------------------------------------------------------------------
