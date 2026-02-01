@@ -1,6 +1,23 @@
-# BI-and-Data-Analytics-Portfolio
-Hello, my name is Vincent F, and I will be posting my data analytics practice journey here.
+# BI and Data Analytics Portfolio
 
-In this repository, I will be including my entire data analytics portfolio, from practicing SQL and Python, all the way to the Power BI dashboards I will be making.
+Hello, my name is **Vincent F**, and this repository documents my **data analytics learning and project portfolio**.
 
-As of 1/31/2026, I have decided to make 3 separate folders. SQL, Python, and BI_Dashboards
+This repository includes my full progression in data analytics — from **daily SQL and Python practice** to **completed Power BI dashboards and analytical projects**. The goal is to demonstrate not only technical skills, but also **structured thinking, consistency, and business-focused analysis**.
+
+## Repository Structure
+
+As of **January 31, 2026**, this repository is organized into three main folders:
+
+- **SQL** — Query practice, CTEs, joins, and analytical SQL projects  
+- **Python** — Data cleaning, analysis, and exploratory workflows using Pandas  
+- **BI_Dashboards** — Power BI dashboards with documented business questions, KPIs, and insights
+
+Each folder contains README files that explain the purpose of the work and the skills being practiced.
+
+## Tools & Skills
+- SQL
+- Python (Pandas, NumPy, visualization)
+- Power BI
+- Excel
+
+This repository will continue to evolve as I develop more advanced projects and dashboards.
