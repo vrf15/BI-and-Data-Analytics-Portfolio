@@ -216,7 +216,16 @@ SELECT
 FROM gender_counts
 ORDER BY abnormal_2024_count DESC;
 ```
-INCORRECT
+
+**Feedback**  
+- Missing `AND` between WHERE conditions  
+- CTE #1 included `result_flag` unnecessarily and didn’t filter correctly  
+- CTE #2 didn’t use the CTE; it re‑queried LabResults  
+- `COUNT(abnormal_2024)` is invalid — must count a column  
+- Final SELECT referenced `p.gender` but `p` wasn’t in scope  
+- ORDER BY used `count` instead of the alias  
+- Correct structure: filter → join → aggregate → final select  
+
 
 ----------------------------------------------------------------------------------------------------------------------------
 
