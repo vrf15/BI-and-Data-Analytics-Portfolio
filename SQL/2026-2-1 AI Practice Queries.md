@@ -326,4 +326,198 @@ ORDER BY completed_2024_cost DESC;
 
 ----------------------------------------------------------------------------------------------------------------------------
 
+### Problem — 2026-02-01 — #4
+**Description:**  
+Sum 2024 completed radiology order costs by modality group using a 2‑CTE pipeline.
+
+**Tables:**  
+- RadiologyOrders  
+- RadiologyTypes  
+
+**Columns:**  
+**RadiologyOrders**  
+- order_id  
+- patient_id  
+- modality_id  
+- order_date  
+- order_status  
+- cost  
+
+**RadiologyTypes**  
+- modality_id  
+- modality_name  
+- modality_group  
+
+**Requirements:**  
+- CTE #1: Filter RadiologyOrders to completed 2024 orders, keep modality_id + cost  
+- CTE #2: Join to RadiologyTypes, group by modality_group, sum cost  
+- Final: Return modality_group + completed_2024_cost, order DESC  
+
+---
+
+**Final SQL Solution: My Response**  
+```sql
+WITH completed_2024 AS (
+    SELECT
+        modality_id,
+        cost
+    FROM RadiologyOrders
+    WHERE
+        order_status = 'Completed'
+        order_date BETWEEN '2024-01-01' AND '2024-12-31'
+),
+
+group_costs AS (
+    SELECT
+        rt.modality_id,
+        SUM(c.cost) AS completed_2024_costs
+    FROM RadiologyTypes rt
+    INNER JOIN completed_2024 c
+        ON rt.modality_id = c.modality_id
+    GROUP BY rt.modality_group
+
+SELECT
+    modality_group
+    completed_2024_cost
+ORDER BY cost DESC;
+```
+
+**Final SQL Solution: Correct Answer**  
+```sql
+WITH completed_2024 AS (
+    SELECT
+        modality_id,
+        cost
+    FROM RadiologyOrders
+    WHERE
+        order_status = 'Completed'
+        AND order_date BETWEEN '2024-01-01' AND '2024-12-31'
+),
+
+group_costs AS (
+    SELECT
+        rt.modality_group,
+        SUM(c.cost) AS completed_2024_cost
+    FROM completed_2024 c
+    INNER JOIN RadiologyTypes rt
+        ON c.modality_id = rt.modality_id
+    GROUP BY rt.modality_group
+)
+
+SELECT
+    modality_group,
+    completed_2024_cost
+FROM group_costs
+ORDER BY completed_2024_cost DESC;
+```
+
+**Feedback**  
+- Missing `AND` between WHERE conditions.  
+- CTE #2 never closed — missing the closing parenthesis and comma.  
+- You selected `rt.modality_id` but needed `rt.modality_group`.  
+- Alias mismatch: you used `completed_2024_costs` but selected `completed_2024_cost` later.  
+- Final SELECT was missing commas between columns.  
+- Final ORDER BY referenced `cost`, which doesn’t exist — must order by the aggregated alias.  
+- Overall structure is correct; just needed syntactic cleanup and correct grouping column.  
+
+----------------------------------------------------------------------------------------------------------------------------
+
+### Problem — 2026-02-01 — #5
+**Description:**  
+Count inpatient 2024 encounters by insurance type using a 2‑CTE pipeline.
+
+**Tables:**  
+- Encounters  
+- InsurancePlans  
+
+**Columns:**  
+**Encounters**  
+- encounter_id  
+- patient_id  
+- insurance_id  
+- encounter_date  
+- encounter_type  
+- encounter_status  
+
+**InsurancePlans**  
+- insurance_id  
+- insurance_name  
+- insurance_type  
+
+**Requirements:**  
+- CTE #1: Filter Encounters to 2024 inpatient encounters, keep insurance_id + encounter_id  
+- CTE #2: Join to InsurancePlans, group by insurance_type, count encounters  
+- Final: Return insurance_type + inpatient_2024_count, order DESC  
+
+---
+
+**Final SQL Solution: My Response**  
+```sql
+WITH inpatient_2024 AS (
+    SELECT
+        insurance_id,
+        encounter_id
+    FROM Encounters
+    WHERE
+        encounter_type = 'Inpatient'
+        AND encounter_date BETWEEN '2024-01-01' AND '2024-12-31'
+)
+
+type_counts AS (
+    SELECT
+        ip.insurance_type,
+        COUNT(i.encounter_id) AS inpatient_2024_count
+    FROM inpatient_2024 i
+    INNER JOIN InsurancePlans ip
+        ON i.insurance_id = ip.insurance_id
+    GROUP BY ip.insurance_type
+
+SELECT
+    insurance_type,
+    inpatient_2024_count
+FROM type_counts
+ORDER by inpatient_2024_count DESC;
+```
+
+---
+
+**Final SQL Solution: Correct Answer**  
+```sql
+WITH inpatient_2024 AS (
+    SELECT
+        insurance_id,
+        encounter_id
+    FROM Encounters
+    WHERE
+        encounter_type = 'Inpatient'
+        AND encounter_date BETWEEN '2024-01-01' AND '2024-12-31'
+),
+
+type_counts AS (
+    SELECT
+        ip.insurance_type,
+        COUNT(i.encounter_id) AS inpatient_2024_count
+    FROM inpatient_2024 i
+    INNER JOIN InsurancePlans ip
+        ON i.insurance_id = ip.insurance_id
+    GROUP BY ip.insurance_type
+)
+
+SELECT
+    insurance_type,
+    inpatient_2024_count
+FROM type_counts
+ORDER BY inpatient_2024_count DESC;
+```
+
+---
+
+**Feedback**  
+- Missing comma between CTEs — every CTE except the last must end with a comma.  
+- CTE #2 was missing a closing parenthesis.  
+- ORDER BY used the correct alias — good.  
+- Logic was perfect; only structural syntax issues.  
+
+----------------------------------------------------------------------------------------------------------------------------
+
 
