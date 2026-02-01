@@ -520,4 +520,99 @@ ORDER BY inpatient_2024_count DESC;
 
 ----------------------------------------------------------------------------------------------------------------------------
 
+### Problem — 2026-02-01 — #7
+**Description:**  
+Sum 2024 completed radiology order costs by modality using a 2‑CTE pipeline.
+
+**Tables:**  
+- RadiologyOrders  
+- RadiologyTests  
+
+**Columns:**  
+**RadiologyOrders**  
+- order_id  
+- patient_id  
+- test_id  
+- order_date  
+- order_status  
+- cost  
+
+**RadiologyTests**  
+- test_id  
+- test_name  
+- modality  
+
+**Requirements:**  
+- CTE #1: Filter RadiologyOrders to completed 2024 orders, keep test_id + cost  
+- CTE #2: Join to RadiologyTests, group by modality, sum cost  
+- Final: Return modality + completed_2024_cost, order DESC  
+
+---
+
+**Final SQL Solution: My Response**  
+```sql
+WITH completed_2024 AS (
+    SELECT
+        test_id,
+        cost
+    FROM RadiologyOrders
+    WHERE
+        order_status = 'Completed'
+        AND order_date BETWEEN '2024-01-01' AND '2024-12-31'
+)
+modality_costs AS (
+    SELECT
+        rt.modality,
+        SUM(c.cost) AS completed_2024_cost
+    FROM completed_2024 c
+    INNER JOIN RadiologyTests rt
+        ON c.test_id = rt.test_id
+    GROUP BY modality
+)
+SELECT
+    modality,
+    completed_2024_cost
+ORDER BY completed_2024_cost DESC;
+```
+
+---
+
+**Final SQL Solution: Correct Answer**  
+```sql
+WITH completed_2024 AS (
+    SELECT
+        test_id,
+        cost
+    FROM RadiologyOrders
+    WHERE
+        order_status = 'Completed'
+        AND order_date BETWEEN '2024-01-01' AND '2024-12-31'
+),
+
+modality_costs AS (
+    SELECT
+        rt.modality,
+        SUM(c.cost) AS completed_2024_cost
+    FROM completed_2024 c
+    INNER JOIN RadiologyTests rt
+        ON c.test_id = rt.test_id
+    GROUP BY rt.modality
+)
+
+SELECT
+    modality,
+    completed_2024_cost
+FROM modality_costs
+ORDER BY completed_2024_cost DESC;
+```
+
+---
+
+**Feedback**  
+- You forgot the comma between the two CTEs — every CTE except the last must end with a comma.  
+- Final SELECT was missing the `FROM modality_costs` clause.  
+- GROUP BY should reference `rt.modality` explicitly for clarity.  
+- Aside from those structural issues, your logic was perfect and the pipeline was correct.  
+
+----------------------------------------------------------------------------------------------------------------------------
 
