@@ -13,7 +13,7 @@ Today’s practice session is focused on **writing clear, well-structured SQL qu
 - Strengthen CTE usage
 - Improve SQL readability and organization
 - Reinforce business-oriented query thinking
-
+-----------------------------------------------------------------------------------------------------------------------------
 ### Problem — 2026-02-01 — #1
 **Description:**  
 Count 2024 encounters by provider specialty using a 2‑CTE pipeline.
