@@ -125,4 +125,92 @@ FROM specialty_counts
 ORDER BY encounter_2024_count DESC;
 ```
 INCORRECT
------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------### Problem — 2026-02-01 — #2
+**Description:**  
+Count abnormal 2024 lab results by patient gender using a 2‑CTE pipeline.
+
+**Tables:**  
+- LabResults  
+- Patients  
+
+**Columns:**  
+**LabResults**  
+- result_id  
+- patient_id  
+- test_name  
+- result_value  
+- result_flag  
+- result_date  
+
+**Patients**  
+- patient_id  
+- first_name  
+- last_name  
+- gender  
+- date_of_birth  
+
+**Requirements:**  
+- CTE #1: Filter LabResults to abnormal 2024 results, keep patient_id + result_id  
+- CTE #2: Join to Patients, group by gender, count abnormal results  
+- Final: Return gender + abnormal_2024_count, order DESC  
+
+---
+
+**Final SQL Solution: My Response**  
+```sql
+WITH abnormal_2024 AS (
+    SELECT
+        result_flag,
+        patient_id,
+        result_id
+    FROM LabResults
+    WHERE
+        result_date BETWEEN '2024-01-01' AND '2024-12-31'
+        result_flag = 'Abnormal'
+),
+gender_counts AS (
+    SELECT
+        p.gender,
+        COUNT(abnormal_2024) AS abnormal_2024_count
+    FROM LabResults lr
+    INNER JOIN Patients p
+        ON  lr.patient_id = p.patient_id
+    GROUP BY gender
+)
+SELECT
+    p.gender,
+    abnormal_2024_count
+ORDER BY count DESC;
+```
+
+**Final SQL Solution: Correct Answer**  
+```sql
+WITH abnormal_2024 AS (
+    SELECT
+        patient_id,
+        result_id
+    FROM LabResults
+    WHERE
+        result_flag = 'Abnormal'
+        AND result_date BETWEEN '2024-01-01' AND '2024-12-31'
+),
+
+gender_counts AS (
+    SELECT
+        p.gender,
+        COUNT(a.result_id) AS abnormal_2024_count
+    FROM abnormal_2024 a
+    INNER JOIN Patients p
+        ON a.patient_id = p.patient_id
+    GROUP BY p.gender
+)
+
+SELECT
+    gender,
+    abnormal_2024_count
+FROM gender_counts
+ORDER BY abnormal_2024_count DESC;
+```
+INCORRECT
+----------------------------------------------------------------------------------------------------------------------------
+
