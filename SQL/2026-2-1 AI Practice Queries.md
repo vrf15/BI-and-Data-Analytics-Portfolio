@@ -227,8 +227,9 @@ ORDER BY abnormal_2024_count DESC;
 - Correct structure: filter → join → aggregate → final select  
 
 **Realization**
-Oh I get it now. I am supposed to count the first CTE rather than take the LabResults table.
+Oh, I get it now. I am supposed to count the first CTE rather than take the LabResults table.
 
 Because they are joined at the end, I don't need to add the prefix
+
 ----------------------------------------------------------------------------------------------------------------------------
 
