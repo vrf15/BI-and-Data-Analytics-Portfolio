@@ -1,8 +1,10 @@
-# SQL
+# SQL Practice
 
 SQL practice queries will be added to this folder.
 
-- AI prompts are used instead of queries from real databases to enforce memory and obtain instant feedback on mistakes and suggestions
-- Copilot is being used (as of 2/1/2026) as the primary AI for training purposes
+## Practice Method
+- AI-generated prompts are used instead of real database questions to strengthen recall, reinforce SQL structure, and get instant feedback on mistakes and improvements.
+- As of **February 1, 2026**, **GitHub Copilot** is the primary AI tool used for training purposes.
 
-I understand that most modern Data Analysts use AIs to write queries, which I will be doing in the future, but I would like complete mastery of all SQL functions to be able to perform these tasks without the use of AI if needed.
+## Goal
+While most modern analysts use AI-assisted SQL in the workplace (and I plan to as well), my goal is to build **full mastery of SQL fundamentals and functions** so I can write accurate, readable queries **with or without AI** when needed.
