@@ -27,7 +27,7 @@ Count 2024 encounters by provider specialty using a 2‑CTE pipeline.
 - CTE #2: Join to Providers, group by specialty, count encounters  
 - Final: Return specialty + encounter_2024_count, order DESC  
 
-**Final SQL Solution:**  
+**Final SQL Solution: My Response**  
 ```sql
 WITH encounters_2024 AS (
 	SELECT
@@ -49,3 +49,32 @@ SELECT
 	specialty_count,
 	encounter_2024_count
 ORDER BY count DESC;
+```
+**Final SQL Solution: Correct Answer**  
+```sql
+WITH encounters_2024 AS (
+    SELECT
+        encounter_id,
+        provider_id
+    FROM Encounters
+    WHERE
+        encounter_date BETWEEN '2024-01-01' AND '2024-12-31'
+),
+
+specialty_counts AS (
+    SELECT
+        p.specialty,
+        COUNT(e.encounter_id) AS encounter_2024_count
+    FROM encounters_2024 e
+    INNER JOIN Providers p
+        ON e.provider_id = p.provider_id
+    GROUP BY p.specialty
+)
+
+SELECT
+    specialty,
+    encounter_2024_count
+FROM specialty_counts
+ORDER BY encounter_2024_count DESC;
+```
+
