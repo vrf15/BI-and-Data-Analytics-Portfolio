@@ -3,7 +3,7 @@
 SQL practice queries will be added to this folder.
 
 ## Practice Method
-- AI-generated prompts are used instead of real database questions to strengthen recall, reinforce SQL structure, and get instant feedback on mistakes and improvements.
+- AI-generated prompts are used instead of real database queries to strengthen recall, reinforce SQL structure, and get instant feedback on mistakes and improvements.
 - As of **February 1, 2026**, **GitHub Copilot** is the primary AI tool used for training purposes.
 
 ## Goal
