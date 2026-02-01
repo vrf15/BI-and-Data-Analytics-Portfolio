@@ -9,4 +9,4 @@ SQL practice queries will be added to this folder.
 ## Goal
 While most modern analysts use AI-assisted SQL in the workplace (and I plan to as well), my goal is to build **full mastery of SQL fundamentals and functions** so I can write accurate, readable queries **with or without AI**.
 
-We can draw this comparison to knowing basic arithmetic versus using a calculator!
+We can draw this comparison to applying a mathematical formula manually versus using a calculator!
