@@ -126,7 +126,6 @@ SELECT
 FROM specialty_counts
 ORDER BY encounter_2024_count DESC;
 ```
-INCORRECT
 
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -233,4 +232,98 @@ Oh, I get it now. I am supposed to count the first CTE rather than take the LabR
 Because they are joined at the end, I don't need to add the prefix
 
 ----------------------------------------------------------------------------------------------------------------------------
+
+### Problem — 2026-02-01 — #3
+**Description:**  
+Sum 2024 completed medication order costs by drug class using a 2‑CTE pipeline.
+
+**Tables:**  
+- MedicationOrders  
+- Medications  
+
+**Columns:**  
+**MedicationOrders**  
+- order_id  
+- patient_id  
+- medication_id  
+- order_date  
+- order_status  
+- cost  
+
+**Medications**  
+- medication_id  
+- medication_name  
+- drug_class  
+
+**Requirements:**  
+- CTE #1: Filter MedicationOrders to completed 2024 orders, keep medication_id + cost  
+- CTE #2: Join to Medications, group by drug_class, sum cost  
+- Final: Return drug_class + completed_2024_cost, order DESC  
+
+---
+
+**Final SQL Solution: My Response**  
+```sql
+WITH completed_2024 AS (
+    SELECT
+        medication_id,
+        cost
+    FROM MedicationOrders
+    WHERE
+        order_status = 'Completed'
+        AND order_date BETWEEN '2024-01-01' AND '2024-12-31'
+)
+class_costs AS (
+    SELECT
+        m.drug_class,
+        SUM(c.cost) as completed_2024_cost
+    FROM Medications m
+    INNER JOIN completed_2024 c
+        ON c.medication_id = m.medication_id
+    GROUP BY drug_class
+)
+SELECT
+    drug_class,
+    completed_2024_cost
+ORDER BY cost DESC;
+```
+
+**Final SQL Solution: Correct Answer**  
+```sql
+WITH completed_2024 AS (
+    SELECT
+        medication_id,
+        cost
+    FROM MedicationOrders
+    WHERE
+        order_status = 'Completed'
+        AND order_date BETWEEN '2024-01-01' AND '2024-12-31'
+),
+
+class_costs AS (
+    SELECT
+        m.drug_class,
+        SUM(c.cost) AS completed_2024_cost
+    FROM completed_2024 c
+    INNER JOIN Medications m
+        ON c.medication_id = m.medication_id
+    GROUP BY m.drug_class
+)
+
+SELECT
+    drug_class,
+    completed_2024_cost
+FROM class_costs
+ORDER BY completed_2024_cost DESC;
+```
+
+**Feedback**  
+- Missing comma between CTEs — you need a comma after the first CTE.  
+- `GROUP BY drug_class` should be `GROUP BY m.drug_class` for clarity and correctness.  
+- Final `ORDER BY cost DESC` is invalid — `cost` doesn’t exist in the final SELECT; must order by the alias `completed_2024_cost`.  
+- Final SELECT must reference the second CTE (`class_costs`) explicitly.  
+- Overall structure is correct — just needed syntactic tightening and proper ordering.  
+
+----------------------------------------------------------------------------------------------------------------------------
+
 
