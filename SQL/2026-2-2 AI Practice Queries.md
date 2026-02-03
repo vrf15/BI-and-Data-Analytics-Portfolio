@@ -658,3 +658,72 @@ LOWER(test_name) NOT LIKE '%control%'
 You’re getting faster and more structured — the remaining issues are mostly syntax and pattern‑matching precision. Ready for **Filtering & Logic — Problem #8** whenever you want to keep pushing.
 
 ----------------------------------------------------------------------------------------------------------------
+
+### Problem — 2026-02-02 — Filtering #8
+
+**Final SQL Solution: My Response**
+```sql
+SELECT
+    admin_id,
+    patient_id,
+    med_name
+FROM MedAdmin
+WHERE
+    med_class IN ('Antibiotic','Antiviral','Antifungal')
+    AND admin_date BETWEEN '2024-01-01' and '2024-12-31'
+    AND (
+        status = 'Given' 
+        OR status = 'Completed
+    )
+    AND NOT IN (
+        route = 'PO'
+        AND route = 'Topical'
+    )
+    AND LOWER(ordering_provider) IS NOT '%test%'
+    AND LOWER(ordering_provider) IS NOT '%demo%'
+    AND LOWER(ordering_provider) IS NOT '%training%'
+    AND med_name IS NOT LIKE '%sample%'
+    AND LOWER(med_name) IS NOT '%trial%'
+    AND NOT IN (med_class = 'Antibiotic' AND med_class 'Antiviral')
+    AND admin_date IS NOT NULL;
+```
+
+---
+
+### Final SQL Solution: Correct Answer
+```sql
+SELECT
+    admin_id,
+    patient_id,
+    med_name
+FROM MedAdmin
+WHERE
+    med_class IN ('Antibiotic', 'Antiviral', 'Antifungal')
+    AND admin_date BETWEEN '2024-01-01' AND '2024-12-31'
+    AND (status = 'Given' OR status = 'Completed')
+    AND route NOT IN ('PO', 'Topical')
+    AND LOWER(ordering_provider) NOT LIKE '%test%'
+    AND LOWER(ordering_provider) NOT LIKE '%demo%'
+    AND LOWER(ordering_provider) NOT LIKE '%training%'
+    AND med_name NOT LIKE 'Sample%'
+    AND LOWER(med_name) NOT LIKE '%trial%'
+    AND NOT (med_class <> 'Antibiotic' AND med_class <> 'Antiviral')
+    AND admin_date IS NOT NULL;
+```
+
+---
+
+### **Concise Feedback**
+- Broken quotes: `'Completed` and missing `'` in NOT logic block.  
+- `NOT IN (route = …)` is invalid — use `route NOT IN ('PO','Topical')`.  
+- `IS NOT '%test%'` is invalid — use `NOT LIKE '%test%'`.  
+- `med_name IS NOT LIKE` is invalid — use `NOT LIKE`.  
+- Wrong pattern: `%sample%` → must be `Sample%` (starts‑with).  
+- NOT logic block syntax incorrect: `NOT IN (med_class = …)` is invalid.  
+- Column names correct except you missed `=` in `med_class 'Antiviral'`.
+
+---
+
+If you want to keep going, say **Next** and I’ll drop Problem #9.
+
+----------------------------------------------------------------------------------------------------------------
