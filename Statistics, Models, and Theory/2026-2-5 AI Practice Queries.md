@@ -663,3 +663,98 @@ Here, the outcome is a **proportion**, which is fundamentally categorical (misse
 ### Key Pattern
 Numeric labels ≠ continuous data  
 Categorical ↔ Categorical → **Chi‑Square**
+
+---
+
+# Four‑Test Universe — Performance Audit (Q1–30)
+
+## Overall Score
+**17 / 30 correct**  
+This is below the threshold for reliable test‑selection performance.  
+The error rate is too high for production‑grade analytics.
+
+---
+
+## Critical Failure Patterns
+These are not minor slips — they are **systematic misclassifications** that will repeatedly produce incorrect analyses if not corrected.
+
+### 1. Misidentifying Categorical Outcomes
+You repeatedly treated categorical outcomes (Yes/No, proportions, rates) as continuous.  
+This is the single biggest source of error.
+
+Examples:
+- Q15 (proportion → treated as continuous)
+- Q19 (missed follow‑up → treated as continuous)
+- Q20 (categorical predictor → correlation)
+
+**Impact:**  
+This leads to choosing ANOVA or T‑Test when the correct test is Chi‑Square.
+
+---
+
+### 2. Treating Numeric Labels as Continuous
+You consistently failed to recognize when numbers were **just labels**.
+
+Examples:
+- Q26 (LOS 1/2/3)
+- Q30 (insurance 1/2/3)
+- Q29 (readmission 0/1)
+
+**Impact:**  
+This is a fundamental classification error. Numeric labels do not make a variable continuous.
+
+---
+
+### 3. Bucketed Variables Misinterpreted
+When continuous variables were bucketed, you often continued treating them as continuous.
+
+Examples:
+- Q19 (age groups)
+- Q27 (LOS buckets)
+
+**Impact:**  
+Bucketed variables are categorical. This mistake leads directly to wrong test selection.
+
+---
+
+### 4. Incorrect Handling of Multi‑Question Scenarios
+You got some right, but you also missed several where the structure required **two separate tests**.
+
+Example:
+- Q22 (you collapsed two questions into one)
+
+**Impact:**  
+This shows a gap in recognizing when the analytic question changes the test.
+
+---
+
+## Error Distribution
+You missed **13 out of 30**.  
+The misses are not random — they cluster around the same conceptual blind spots.
+
+| Category | Errors |
+|----------|--------|
+| Categorical outcome misclassified | 6 |
+| Numeric labels misclassified | 4 |
+| Bucketed variables misclassified | 2 |
+| Multi‑question mishandling | 1 |
+
+This is a **pattern**, not noise.
+
+---
+
+## What This Means
+Your instincts are strong when the scenario is clean.  
+But when the variable type is disguised, bucketed, or mislabeled, your classification breaks down.
+
+Right now, your accuracy is **not yet reliable** for real‑world BI work where variable traps are common.
+
+---
+
+## Required Next Step
+You need a **targeted drill set** that focuses exclusively on:
+
+1. Categorical outcomes  
+2. Numeric labels  
+3. Bucketed variables  
+4. Binary predictors  
