@@ -330,3 +330,336 @@ Both variables are continuous. Correlation measures the strength and direction o
 Continuous ↔ Continuous → **Correlation**
 
 ---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 19
+A hospital wants to know whether the **proportion of patients who miss their follow‑up appointment** differs across **three age groups** (Under 40, 40–64, 65+).
+
+### My Answer
+B — ANOVA
+
+### Correct Answer
+C — Chi‑Square
+
+### Explanation
+The outcome — **missed follow‑up appointment** — is **Yes/No**, which is categorical.  
+The predictor — **age group** — is also categorical (three buckets).  
+
+Whenever both variables are categorical, the correct test is **Chi‑Square**, regardless of how many groups the predictor has.  
+ANOVA only applies when the **outcome is continuous**, which is not the case here.
+
+### Key Pattern
+Categorical outcome + Categorical predictor → **Chi‑Square**
+
+---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 20
+A hospital wants to know whether **average time to pain medication** (in minutes) differs between **patients who arrived by EMS**, **patients who walked in**, and **patients transferred from another facility**.
+
+### My Answer
+B — Correlation
+
+### Correct Answer
+D — ANOVA
+
+### Explanation
+The predictor — **arrival method** — is **categorical with 3 groups** (EMS, Walk‑In, Transfer).  
+The outcome — **time to pain medication** — is **continuous** (minutes).  
+
+This is the classic structure for **ANOVA**, which compares mean values across 3 or more groups.  
+Correlation only applies when **both variables are continuous**, which is not the case here.
+
+### Key Pattern
+3+ groups (categorical) → Continuous outcome → **ANOVA**
+
+---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 21
+A hospital wants to know whether **average lab turnaround time** (continuous) differs across **STAT**, **Urgent**, and **Routine** orders (categorical), *and* whether **turnaround time is related to patient age** (continuous).  
+You have NOT learned regression or interaction models.
+
+### My Answer
+D — Both A and B (run separately)
+
+### Correct Answer
+D — Both A and B (run separately)
+
+### Explanation
+There are **two separate questions**, each requiring a different test:
+
+1. **Does average turnaround time differ across STAT/Urgent/Routine?**  
+   - Predictor: categorical (3 groups)  
+   - Outcome: continuous  
+   → **ANOVA**
+
+2. **Is turnaround time related to patient age?**  
+   - Continuous ↔ Continuous  
+   → **Correlation**
+
+Because regression and interaction terms are not part of your current four‑test universe, the correct approach is to run **ANOVA and Correlation separately**.
+
+### Key Pattern
+Multiple questions → **Run multiple tests**  
+3+ groups → **ANOVA**  
+Continuous ↔ Continuous → **Correlation**
+
+---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 22
+A hospital wants to know whether the **proportion of patients who develop a postoperative complication** differs across **four surgeons**, and whether **complication rate** is related to **surgery duration** (minutes).  
+You are restricted to the four‑test universe (T‑Test, ANOVA, Chi‑Square, Correlation).
+
+### My Answer
+C — Correlation
+
+### Correct Answer
+D — Both A and C (run separately)
+
+### Explanation
+There are **two different questions**, each requiring a different test:
+
+1. **Do complication rates differ across four surgeons?**  
+   - Complication = Yes/No (categorical)  
+   - Surgeon = 4 groups (categorical)  
+   → **Chi‑Square**
+
+2. **Is complication rate related to surgery duration?**  
+   - Complication = Yes/No (categorical)  
+   - Duration = continuous  
+   → Within the four‑test universe, the only valid option is to treat this as:  
+     **Categorical ↔ Continuous → Correlation (imperfect but allowed under constraints)**
+
+Because regression/logistic models are not available yet, the correct approach is to run **Chi‑Square** for the group comparison and **Correlation** for the continuous relationship.
+
+### Key Pattern
+Multiple questions → **Multiple tests**  
+Categorical ↔ Categorical → **Chi‑Square**  
+Categorical ↔ Continuous (within constraints) → **Correlation**
+
+---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 23
+A hospital wants to know whether **average number of daily discharges** (continuous) differs across **three months** (January, February, March — categorical), and whether **daily discharges** are related to **average daily census** (continuous).  
+You are restricted to the four‑test universe (T‑Test, ANOVA, Chi‑Square, Correlation).
+
+### My Answer
+C — Both A and B (run separately)
+
+### Correct Answer
+C — Both A and B (run separately)
+
+### Explanation
+There are **two distinct analytical questions**, each requiring a different test:
+
+1. **Do average daily discharges differ across January, February, and March?**  
+   - Predictor: Month (categorical, 3 groups)  
+   - Outcome: Daily discharges (continuous)  
+   → **ANOVA**
+
+2. **Are daily discharges related to average daily census?**  
+   - Continuous ↔ Continuous  
+   → **Correlation**
+
+Because regression and time‑series models are not part of your current toolbox, the correct approach is to run **ANOVA** and **Correlation** as two separate analyses.
+
+### Key Pattern
+Multiple questions → **Multiple tests**  
+3+ groups → **ANOVA**  
+Continuous ↔ Continuous → **Correlation**
+
+---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 24
+A hospital wants to know whether **average patient satisfaction score** differs across **three appointment types** (New Patient, Follow‑Up, Post‑Op).  
+The satisfaction score is recorded as **1, 2, 3, 4, 5**, but these values represent **ordered categories**, not a true continuous scale.
+
+### My Answer
+A — ANOVA
+
+### Correct Answer
+A — ANOVA
+
+### Explanation
+Even though the satisfaction score is technically **ordinal**, you are restricted to the four‑test universe.  
+Within that constraint, ANOVA is still the correct choice because:
+
+- The predictor is **categorical with 3 groups**  
+- The outcome is **numeric**, even if not perfectly continuous  
+- None of the other tests fit the structure  
+
+In real analytics work, you might use a non‑parametric alternative (like Kruskal‑Wallis), but that is outside the current allowed test set.
+
+### Key Pattern
+3+ groups → Numeric outcome → **ANOVA**  
+(Ordinal treated as numeric within the four‑test framework)
+
+---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 25
+A hospital wants to know whether the **average number of medications administered per patient** (a count treated as continuous) differs across **four inpatient units** (Med‑Surg, ICU, Telemetry, Orthopedics).
+
+### My Answer
+C — T‑Test
+
+### Correct Answer
+B — ANOVA
+
+### Explanation
+The predictor — **inpatient unit** — has **four groups**, which automatically rules out a T‑Test (only used for two groups).  
+The outcome — **number of medications** — is a **count**, but in analytics counts are treated as **continuous** unless explicitly bucketed.  
+
+So the structure is:
+- 4 groups (categorical)  
+- continuous outcome (count treated as numeric)  
+
+This is the classic signature of **ANOVA**.
+
+### Key Pattern
+3+ groups → Continuous outcome → **ANOVA**
+
+---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 26
+A hospital wants to know whether **average length of stay (LOS)** differs across **three discharge dispositions** (Home, SNF, Rehab).  
+However, LOS is recorded as **“Short”, “Medium”, “Long”**, later mapped to **1, 2, 3** — but these are **ordinal categories**, not true continuous LOS.
+
+### My Answer
+A — ANOVA
+
+### Correct Answer
+B — Chi‑Square
+
+### Explanation
+Even though LOS was mapped to numbers (1, 2, 3), those numbers **do not represent real continuous values**.  
+They are simply labels for **ordered categories**:
+
+- Short  
+- Medium  
+- Long  
+
+The predictor (discharge disposition) is also **categorical with 3 groups**.
+
+So the structure is:
+
+- Categorical outcome (ordinal disguised as numeric)  
+- Categorical predictor (3 groups)  
+
+This is **categorical ↔ categorical**, which means:
+
+→ **Chi‑Square** is the correct test.
+
+ANOVA requires a **continuous** outcome, which is not the case here.
+
+### Key Pattern
+If a variable is numeric but represents **labels**, not measurements → treat it as **categorical** → **Chi‑Square**
+
+---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 27
+A hospital wants to know whether the **proportion of patients who return to the ED within 72 hours** differs across **three LOS buckets** (<2 days, 2–4 days, >4 days).  
+LOS was originally continuous but has been **bucketed into categories**.
+
+### My Answer
+A — ANOVA
+
+### Correct Answer
+B — Chi‑Square
+
+### Explanation
+Once LOS is **bucketed**, it stops being continuous and becomes **categorical**.  
+The outcome — **ED return within 72 hours** — is also categorical (Yes/No).
+
+So the structure becomes:
+
+- Predictor: **Categorical (3 LOS buckets)**  
+- Outcome: **Categorical (return vs. no return)**  
+
+Categorical ↔ Categorical → **Chi‑Square**
+
+ANOVA requires a **continuous** outcome, which is not present here.
+
+### Key Pattern
+If a continuous variable is **bucketed**, it becomes categorical → **Chi‑Square** for categorical outcomes.
+
+---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 28
+A hospital wants to know whether **average surgery duration** (continuous) differs across **three surgeons** (categorical), and whether **surgery duration** is related to **patient BMI** (continuous).  
+You are restricted to the four‑test universe (T‑Test, ANOVA, Chi‑Square, Correlation).
+
+### My Answer
+C — Both A and B (run separately)
+
+### Correct Answer
+C — Both A and B (run separately)
+
+### Explanation
+Two distinct questions
+
+---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 29
+A hospital wants to know whether **average patient age** (continuous) differs between patients who **were readmitted within 30 days** and those who **were not**.  
+Readmission is coded as **0 = No, 1 = Yes**, which is **binary categorical**, not continuous.
+
+### My Answer
+A — Chi‑Square
+
+### Correct Answer
+B — T‑Test
+
+### Explanation
+The structure is:
+
+- Predictor: **Readmission (0/1)** → binary categorical  
+- Outcome: **Age** → continuous  
+
+This is the classic signature of a **T‑Test**:
+
+**Two groups → Continuous outcome → T‑Test**
+
+Chi‑Square is only used when **both** variables are categorical.  
+Here, age is continuous, so Chi‑Square is not appropriate.
+
+### Key Pattern
+Binary categorical ↔ Continuous → **T‑Test**
+
+---
+
+# Format‑5 Drill — Advanced Set 3
+## Question 30
+A hospital wants to know whether the **proportion of patients who miss their follow‑up appointment** differs across **three insurance types** (Commercial, Medicare, Medicaid).  
+Insurance types were coded as **1, 2, 3**, but these are **labels**, not real numeric values.
+
+### My Answer
+A — ANOVA
+
+### Correct Answer
+B — Chi‑Square
+
+### Explanation
+The structure is:
+
+- Predictor: **Insurance type (1, 2, 3)** → categorical  
+- Outcome: **Missed follow‑up (Yes/No)** → categorical  
+
+This is **categorical ↔ categorical**, which means:
+
+→ **Chi‑Square** is the correct test.
+
+ANOVA requires a **continuous** outcome.  
+Here, the outcome is a **proportion**, which is fundamentally categorical (missed vs. not missed).
+
+### Key Pattern
+Numeric labels ≠ continuous data  
+Categorical ↔ Categorical → **Chi‑Square**
