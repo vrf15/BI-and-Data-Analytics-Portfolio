@@ -1,0 +1,19 @@
+# AI Practice Queries — February 5, 2026
+
+## Focus: Statistical Test Selection & Variable Classification (Four‑Test Universe)
+
+Today’s practice session centers on **correctly identifying variable types** (continuous vs categorical) and selecting the appropriate statistical test within the **four‑test framework** (T‑Test, ANOVA, Chi‑Square, Correlation).  
+The emphasis is on **pattern recognition**, **categorical/continuous classification**, and **avoiding common traps** that appear in real hospital analytics.
+
+### Practice Method
+- Copilot provides scenario‑based prompts  
+- I classify variables and select the correct statistical test  
+- Immediate feedback is reviewed and incorporated  
+- Patterns are reinforced through progressive difficulty
+
+### Goals
+- Strengthen mastery of continuous vs categorical variable identification  
+- Correctly map scenarios to T‑Test, ANOVA, Chi‑Square, or Correlation  
+- Build rapid pattern recognition for real‑world BI and clinical analytics  
+- Avoid misclassification traps (e.g., skewed data, small samples, multi‑group predictors)  
+- Maintain clarity and consistency across all reasoning steps
