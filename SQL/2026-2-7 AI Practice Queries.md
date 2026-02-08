@@ -2,9 +2,11 @@
 
 ## Focus: Window Functions (CTEs → Sequencing → Analytic Logic)
 
-Today’s practice session shifts into **window function mastery**, building on your existing foundation of filtering and CTE pipelines. The emphasis is on understanding how analytic functions like `ROW_NUMBER()`, `RANK()`, and `LAG()` operate across partitions, enabling patient‑level sequencing, timeline construction, and Revenue Integrity analytics.
+Today’s practice session shifts into **window function mastery**, building on my existing foundation of filtering and CTE pipelines. The emphasis is on understanding how analytic functions like `ROW_NUMBER()`, `RANK()`, and `LAG()` operate across partitions, enabling patient‑level sequencing, timeline construction, and Revenue Integrity analytics.
 
 Window functions allow you to analyze patterns **within groups** (such as per‑
+
+**NOTE: I always read the feedback and then make corrections on my notepad. This ensures muscle memory between reps**
 
 ---
 
@@ -23,8 +25,8 @@ Use a CTE to filter charges, then apply `ROW_NUMBER()` to create a chronological
 - charge_date IS NOT NULL  
 
 **Window Function Requirements:**  
-- ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY charge_date ASC) AS row_num  
-
+- ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY charge_date ASC) AS row_num
+  
 ---
 
 ## Final SQL Solution: My Response
