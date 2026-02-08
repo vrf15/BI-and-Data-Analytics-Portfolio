@@ -4,7 +4,7 @@
 
 Today’s practice session shifts into **window function mastery**, building on my existing foundation of filtering and CTE pipelines. The emphasis is on understanding how analytic functions like `ROW_NUMBER()`, `RANK()`, and `LAG()` operate across partitions, enabling patient‑level sequencing, timeline construction, and Revenue Integrity analytics.
 
-Window functions allow you to analyze patterns **within groups** (such as per‑
+Window functions allow me to analyze patterns **within groups** (such as per‑)
 
 **NOTE: I always read the feedback and then make corrections on my notepad. This ensures muscle memory between reps**
 
