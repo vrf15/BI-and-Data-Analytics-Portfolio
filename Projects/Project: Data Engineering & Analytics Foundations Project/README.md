@@ -5,17 +5,14 @@ This repository documents a structured introduction to analytics engineering and
 
 The purpose of this project is to build a repeatable, professional analytics engineering process while strengthening SQL, analytical reasoning, and data modeling fundamentals.
 
-/* NOTE:
-   This project intentionally incorporates AI‑assisted development (Copilot, ChatGPT)
-   to reflect current industry practices. I already have foundational skills in SQL
-   (reading, diagnosing, and writing queries) and basic Python proficiency.
-
-   In enterprise environments—especially those involving sensitive or regulated data
-   such as HIPAA—AI usage must follow strict privacy and compliance requirements.
-   For this reason, future workflows will incorporate offline, non‑telemetry models
-   (e.g., Phi‑3) for handling protected or confidential datasets.
-*/
-
+NOTE: This project intentionally incorporates AI‑assisted development (Copilot, ChatGPT)
+      to reflect current industry practices. I already have foundational skills in SQL
+      (reading, diagnosing, and writing queries) and basic Python proficiency.
+   
+      In enterprise environments—especially those involving sensitive or regulated data
+      such as HIPAA—AI usage must follow strict privacy and compliance requirements.
+      For this reason, future workflows will incorporate offline, non‑telemetry models
+      (e.g., Phi‑3) for handling protected or confidential datasets.
 ---
 
 ## Objectives
