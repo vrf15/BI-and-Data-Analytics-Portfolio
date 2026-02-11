@@ -1,9 +1,9 @@
 # Data Engineering & Analytics Foundations Project
 
 ## Overview
-This project documents a step‑by‑step introduction to analytics engineering and data engineering concepts using the Superstore dataset. The workflow mirrors real enterprise practices, including staging, metric extraction, dimensional analysis, and structured documentation.
+This repository documents a structured introduction to analytics engineering and data engineering concepts using the Superstore dataset. The workflow mirrors enterprise practices, including staging, metric extraction, dimensional analysis, and disciplined documentation.
 
-The goal is to build a repeatable, professional analytics engineering process while developing SQL, analytical reasoning, and data modeling intuition.
+The purpose of this project is to build a repeatable, professional analytics engineering process while strengthening SQL, analytical reasoning, and data modeling fundamentals.
 
 ---
 
@@ -18,36 +18,14 @@ The goal is to build a repeatable, professional analytics engineering process wh
 
 ## Dataset
 **Source:** `staging.superstore`  
-A standard retail dataset containing orders, customers, products, and regional information.
+A retail dataset containing orders, customers, products, and regional information.
 
 ---
 
-## Completed Work (as of 2026‑02‑11)
-- Created a dedicated notes file (`project_notes.sql`) in DBeaver.
-- Defined a simple, scalable notes structure using headers.
-- Extracted core business metrics:
-  - Total Sales
-  - Total Profit
-  - Total Quantity
-  - Total Orders
-  - Total Customers
-  - Avg Discount
-  - Avg Profit Margin
-- Clarified workflow roles:
-  - AI assistant proposes next steps and SQL.
-  - Human analyst validates and executes.
-- Identified the next phase: dimensional breakdown.
+## Changelog
+All daily updates are stored in the `/updates` directory.
 
----
-
-## Next Steps
-- Sales by Category
-- Profit by Category
-- Sales by Region
-- Profit by Region
-- Sales by Segment
-- Profit by Segment
-- Begin building a modeling mindset (facts, dimensions, grain)
+- **2026‑02‑11:** Core metrics extracted, notes structure created, workflow roles clarified, dimensional analysis phase identified.
 
 ---
 
