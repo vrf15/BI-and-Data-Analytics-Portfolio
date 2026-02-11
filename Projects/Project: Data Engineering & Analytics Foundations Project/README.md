@@ -36,5 +36,12 @@ All daily updates are stored in the `/updates` directory.
 - **2026‑02‑11:** Core metrics extracted, notes structure created, workflow roles clarified, dimensional analysis phase identified.
 
 ---
+## Tools Used in This Project
 
-## Repository Structure
+This project utilizes a combination of SQL, analytics engineering practices, and AI‑assisted development. The following tools support the workflow:
+
+- **DBeaver** — SQL client used for querying, notes, and workflow organization.
+- **PostgreSQL (or equivalent SQL engine)** — backend for executing queries against the Superstore dataset.
+- **GitHub** — version control and documentation repository.
+- **Copilot / ChatGPT** — AI‑assisted development for SQL generation, workflow structuring, and process guidance.
+- **Offline AI Models (e.g., Phi‑3)** — planned for future stages involving sensitive or regulated data.
