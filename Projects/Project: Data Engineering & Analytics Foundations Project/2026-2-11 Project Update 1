@@ -35,7 +35,7 @@ These values form the baseline for all future analysis.
 - **AI Assistant:** proposes next steps, provides SQL, maintains structure.  
 - **Human Analyst:** executes queries, validates results, interprets findings.
 
-This mirrors a real analytics engineering collaboration.
+This process mirrors a real analytics engineering collaboration.
 
 ---
 
