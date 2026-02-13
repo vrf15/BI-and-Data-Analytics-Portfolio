@@ -54,8 +54,11 @@ SELECT
 FROM staging.superstore
 GROUP BY category
 ORDER BY profit_margin DESC;
+```
+---
+# 2026-2-13
 
-
+```sql
 -- 3. REGION ANALYSIS
 SELECT
     region,
