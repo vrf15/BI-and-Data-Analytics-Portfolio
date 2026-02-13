@@ -3,6 +3,7 @@ This document contains every SQL query used in the Superstore Analytics project.
 Queries are organized by analysis section for clarity, reproducibility, and auditability.
 
 ---
+# 2026-2-13
 ```sql
 -- ============================
 --  QUERY LIST (SUPERSTORE)
