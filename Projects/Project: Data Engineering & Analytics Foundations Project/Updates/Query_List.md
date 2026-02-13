@@ -79,4 +79,27 @@ SELECT
 FROM staging.superstore
 GROUP BY region
 ORDER BY profit_margin DESC;
+
+
+-- 4. SEGMENT ANALYSIS
+SELECT
+    segment,
+    SUM(sales) AS total_sales
+FROM staging.superstore
+GROUP BY segment
+ORDER BY total_sales DESC;
+
+SELECT
+    segment,
+    SUM(profit) AS total_profit
+FROM staging.superstore
+GROUP BY segment
+ORDER BY total_profit DESC;
+
+SELECT
+    segment,
+    SUM(profit) / SUM(sales) AS profit_margin
+FROM staging.superstore
+GROUP BY segment
+ORDER BY profit_margin DESC;
 ```
