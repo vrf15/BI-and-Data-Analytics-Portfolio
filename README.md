@@ -7,10 +7,10 @@ I am also building a compact **home data engineering stack** (PostgreSQL, Linux,
 This repository now includes:
 
 - **Daily SQL and Python practice**
-- **Exploratory analysis and business logic development**
-- **Power BI dashboards**
-- **A full analytics engineering project**, including RAW → STAGING → CORE modeling
-- **Star Schema design (fact + dimension tables)**
+- **Exploratory analysis and business logic development** WIP
+- **Power BI dashboards** WIP
+- **A full analytics engineering project**, including RAW → STAGING → CORE modeling WIP
+- **Star Schema design (fact + dimension tables)** WIP (within projects)
 - **Documentation, notes, and changelogs following enterprise conventions**
 
 The goal is to demonstrate not only technical skill, but also **my commitment to mastering the full analytics engineering pipeline**.
