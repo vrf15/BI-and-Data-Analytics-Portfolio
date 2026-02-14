@@ -28,15 +28,10 @@ As of **February 2026**, this repository includes:
 - Data modeling and transformation logic  
 
 ### **Python/**
-- Data cleaning and wrangling  
-- Exploratory analysis  
-- Pandas workflows  
-- Automation scripts  
+WIP
 
 ### **BI_Dashboards/**
-- Power BI dashboards  
-- Business questions, KPIs, and insights  
-- Documentation of analytical reasoning  
+WIP
 
 ### **Data_Engineering_Project/**
 *(New since January 2026)*  
