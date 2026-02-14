@@ -116,4 +116,62 @@ SELECT
 FROM "STAGING".superstore
 GROUP BY segment
 ORDER BY profit_margin DESC;
+
+SELECT
+    customer_name,
+    SUM(sales) AS total_sales
+FROM "STAGING".superstore
+GROUP BY customer_name
+ORDER BY total_sales DESC
+LIMIT 10;
+
+CREATE TABLE "CORE".dim_customers AS
+SELECT DISTINCT
+    customer_id,
+    customer_name,
+    segment
+FROM "STAGING".superstore;
+
+CREATE TABLE "CORE".dim_products AS
+SELECT DISTINCT
+    product_id,
+    product_name,
+    category,
+    sub_category
+FROM "STAGING".superstore;
+
+CREATE TABLE "CORE".fct_sales AS
+SELECT
+    row_id,
+    order_id,
+    order_date,
+    ship_date,
+    ship_mode,
+    customer_id,
+    product_id,
+    region,
+    state,
+    city,
+    postal_code,
+    sales,
+    quantity,
+    discount,
+    profit
+FROM "STAGING".superstore;
+
+SELECT COUNT(*) FROM "STAGING".superstore;
+SELECT COUNT(*) FROM "CORE".fct_sales;
+
+SELECT customer_id, COUNT(*) 
+FROM "CORE".dim_customers
+GROUP BY customer_id
+HAVING COUNT(*) > 1;
+
+SELECT product_id, COUNT(*) 
+FROM "CORE".dim_products
+GROUP BY product_id
+HAVING COUNT(*) > 1;
+
+SELECT MIN(date), MAX(date) FROM "CORE".dim_dates;
+
 ```
