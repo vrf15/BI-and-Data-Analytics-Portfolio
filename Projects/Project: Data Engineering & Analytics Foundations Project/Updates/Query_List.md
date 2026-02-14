@@ -109,4 +109,11 @@ SELECT
 FROM "STAGING".superstore
 GROUP BY segment
 ORDER BY total_sales DESC;
+
+SELECT
+    segment,
+    SUM(profit) / SUM(sales) AS profit_margin
+FROM "STAGING".superstore
+GROUP BY segment
+ORDER BY profit_margin DESC;
 ```
