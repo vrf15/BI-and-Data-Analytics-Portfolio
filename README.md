@@ -1,23 +1,63 @@
-# Data Analytics and Data Engineering Portfolio
+# Data Analytics & Analytics Engineering Portfolio
 
-Hello, my name is **Vincent F**, and this repository documents my **data analytics learning and project portfolio**. I will also be adding on **data engineering and architecture** projects later on. I am currently thinking of creating a compact stack at home so I can practice the ETL/ELT process and create organized schemas within my very own minitiaure data warehouse.
+Hello, my name is **Vincent F**, and this repository documents my progression from foundational data analytics into **analytics engineering and data engineering**. Since starting this journey, I’ve expanded far beyond SQL and BI dashboards — I’m now building **end‑to‑end data pipelines**, practicing **ETL/ELT**, and designing **professional data models** using real engineering patterns.
 
-This repository includes my full progression in data analytics — from **daily SQL and Python practice** to **completed Power BI dashboards and analytical projects**. The goal is to demonstrate not only technical skills, but also **how willing I am to learn more about the field and broaden my scope!**
+I am also building a compact **home data engineering stack** (PostgreSQL, Linux, Docker, Airflow/Prefect, MinIO, dbt‑style modeling) so I can practice the full lifecycle of modern data workflows and architect my own miniature data warehouse.
+
+This repository now includes:
+
+- **Daily SQL and Python practice**
+- **Exploratory analysis and business logic development**
+- **Power BI dashboards**
+- **A full analytics engineering project**, including RAW → STAGING → CORE modeling
+- **Star Schema design (fact + dimension tables)**
+- **Documentation, notes, and changelogs following enterprise conventions**
+
+The goal is to demonstrate not only technical skill, but also **my commitment to mastering the full analytics engineering pipeline**.
+
+---
 
 ## Repository Structure
 
-As of **January 31, 2026**, this repository is organized into three main folders:
+As of **February 2026**, this repository includes:
 
-- **SQL** — Query practice, CTEs, joins, and analytical SQL projects  
-- **Python** — Data cleaning, analysis, and exploratory workflows using Pandas  
-- **BI_Dashboards** — Power BI dashboards with documented business questions, KPIs, and insights
+### **SQL/**
+- Query practice  
+- CTEs, joins, window functions  
+- Analytical SQL exercises  
+- Data modeling and transformation logic  
 
-Each folder contains README files that explain the purpose of the work and the skills being practiced.
+### **Python/**
+- Data cleaning and wrangling  
+- Exploratory analysis  
+- Pandas workflows  
+- Automation scripts  
+
+### **BI_Dashboards/**
+- Power BI dashboards  
+- Business questions, KPIs, and insights  
+- Documentation of analytical reasoning  
+
+### **Data_Engineering_Project/**
+*(New since January 2026)*  
+- RAW schema ingestion  
+- STAGING schema cleaning and standardization  
+- CORE schema (dbt‑style) star schema  
+- Fact and dimension table design  
+- Notes, changelogs, and modeling documentation  
+
+---
 
 ## Tools & Skills
-- SQL
-- Python (Pandas, NumPy, visualization)
-- Power BI
-- Excel
 
-This repository will continue to evolve as I develop more advanced projects and dashboards.
+- SQL (analytics + modeling)  
+- Python (Pandas, NumPy, automation)  
+- Power BI  
+- Excel  
+- Data Modeling (Star Schema, fact/dim design)  
+- ETL/ELT workflows  
+- Schema design (RAW → STAGING → CORE → ANALYTICS)  
+- Analytics Engineering concepts  
+- Documentation and versioning  
+
+This repository will continue to evolve as I build more **end‑to‑end pipelines**, **BI dashboards**, and **data engineering projects**.
