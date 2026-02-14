@@ -174,4 +174,75 @@ HAVING COUNT(*) > 1;
 
 SELECT MIN(date), MAX(date) FROM "CORE".dim_dates;
 
+CREATE TABLE "ANALYTICS".sales_by_category AS
+SELECT
+    p.category,
+    SUM(f.sales) AS total_sales,
+    SUM(f.profit) AS total_profit,
+    SUM(f.profit) / NULLIF(SUM(f.sales), 0) AS profit_margin
+FROM "CORE".fct_sales f
+JOIN "CORE".dim_products p
+    ON f.product_id = p.product_id
+GROUP BY p.category
+ORDER BY total_sales DESC;
+
+CREATE TABLE "ANALYTICS".sales_by_region AS
+SELECT
+    f.region,
+    SUM(f.sales) AS total_sales,
+    SUM(f.profit) AS total_profit,
+    SUM(f.profit) / NULLIF(SUM(f.sales), 0) AS profit_margin
+FROM "CORE".fct_sales f
+GROUP BY f.region
+ORDER BY total_sales DESC;
+
+CREATE TABLE "ANALYTICS".sales_by_segment AS
+SELECT
+    c.segment,
+    SUM(f.sales) AS total_sales,
+    SUM(f.profit) AS total_profit,
+    SUM(f.profit) / NULLIF(SUM(f.sales), 0) AS profit_margin
+FROM "CORE".fct_sales f
+JOIN "CORE".dim_customers c
+    ON f.customer_id = c.customer_id
+GROUP BY c.segment
+ORDER BY total_sales DESC;
+
+CREATE TABLE "ANALYTICS".monthly_sales AS
+SELECT
+    DATE_TRUNC('month', f.order_date) AS month,
+    SUM(f.sales) AS total_sales,
+    SUM(f.profit) AS total_profit
+FROM "CORE".fct_sales f
+GROUP BY DATE_TRUNC('month', f.order_date)
+ORDER BY month;
+
+CREATE TABLE "ANALYTICS".monthly_profit AS
+SELECT
+    DATE_TRUNC('month', f.order_date) AS month,
+    SUM(f.profit) AS total_profit,
+    SUM(f.sales) AS total_sales,
+    SUM(f.profit) / NULLIF(SUM(f.sales), 0) AS profit_margin
+FROM "CORE".fct_sales f
+GROUP BY DATE_TRUNC('month', f.order_date)
+ORDER BY month;
+
+CREATE TABLE "ANALYTICS".yoy_sales AS
+WITH monthly AS (
+    SELECT
+        DATE_TRUNC('month', order_date) AS month,
+        SUM(sales) AS total_sales
+    FROM "CORE".fct_sales
+    GROUP BY DATE_TRUNC('month', order_date)
+)
+SELECT
+    month,
+    total_sales,
+    LAG(total_sales, 12) OVER (ORDER BY month) AS sales_last_year,
+    (total_sales - LAG(total_sales, 12) OVER (ORDER BY month)) AS yoy_change,
+    (total_sales - LAG(total_sales, 12) OVER (ORDER BY month)) 
+        / NULLIF(LAG(total_sales, 12) OVER (ORDER BY month), 0) AS yoy_growth_rate
+FROM monthly
+ORDER BY month;
+
 ```
