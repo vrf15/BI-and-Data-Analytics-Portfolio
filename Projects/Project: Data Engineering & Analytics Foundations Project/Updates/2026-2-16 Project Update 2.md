@@ -43,7 +43,7 @@ With manual tables removed and the staging layer established, the project is now
 
 This marks the shift from exploratory SQL toward a structured analytics engineering workflow.
 
-### DBT sql code below
+### DBT stg.sql code below
 ```sql
 WITH source AS (
 
