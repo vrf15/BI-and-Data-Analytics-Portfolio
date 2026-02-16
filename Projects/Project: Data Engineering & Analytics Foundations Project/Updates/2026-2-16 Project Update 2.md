@@ -42,3 +42,48 @@ With manual tables removed and the staging layer established, the project is now
 - support future semantic modeling and BI integration
 
 This marks the shift from exploratory SQL toward a structured analytics engineering workflow.
+
+### DBT sql code below
+```sql
+WITH source AS (
+
+    SELECT
+        *
+    FROM {{ source('superstore', '2026_2_10_superstore') }}
+
+),
+
+renamed AS (
+
+    SELECT
+        order_id::TEXT          AS order_id,
+        order_date::DATE        AS order_date,
+        ship_date::DATE         AS ship_date,
+        ship_mode::TEXT         AS ship_mode,
+
+        customer_id::TEXT       AS customer_id,
+        customer_name::TEXT     AS customer_name,
+        segment::TEXT           AS segment,
+
+        country::TEXT           AS country,
+        city::TEXT              AS city,
+        state::TEXT             AS state,
+        postal_code::TEXT       AS postal_code,
+        region::TEXT            AS region,
+
+        product_id::TEXT        AS product_id,
+        category::TEXT          AS category,
+        sub_category::TEXT      AS sub_category,
+        product_name::TEXT      AS product_name,
+
+        sales::NUMERIC          AS sales,
+        quantity::INTEGER       AS quantity,
+        discount::NUMERIC       AS discount,
+        profit::NUMERIC         AS profit
+    FROM source
+
+)
+
+SELECT
+    *
+FROM renamed;
