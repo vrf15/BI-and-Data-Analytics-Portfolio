@@ -87,3 +87,57 @@ renamed AS (
 SELECT
     *
 FROM renamed;
+```
+
+# 2026-02-16 — Project Update RESET
+Data Engineering & Analytics Foundations Project
+
+## Changelog
+
+---
+
+### 1. Database Reset for Future Automation & Healthcare BI
+The previous development database was fully deleted and rebuilt from scratch.  
+This reset was intentional and serves several long-term goals:
+
+- eliminate legacy tables created outside dbt  
+- remove inconsistent schemas accumulated during experimentation  
+- ensure a clean, reproducible environment  
+- prepare for automated ingestion pipelines  
+- streamline future healthcare BI dashboard development  
+
+This fresh start aligns the project with analytics engineering best practices and sets the foundation for a fully automated RAW → STAGING → CORE → ANALYTICS workflow.
+
+---
+
+### 2. First Healthcare Staging Model Completed (`stg_hhs_hospital_capacity_facility`)
+The staging model for the **HHS Hospital Capacity (Facility-Level)** dataset is now fully implemented.
+
+Key features include:
+
+- JSONB extraction from the raw payload  
+- standardized data types across all fields  
+- null-safe numeric casting using `nullif()`  
+- comma-stripping for formatted numbers  
+- consistent naming conventions  
+- a clean, analytics-ready column set  
+
+The model sources from:
+
+- `raw_weeklyhcdb.hhs_hospital_capacity_facility_raw`
+
+This staging layer will feed upcoming CORE models focused on:
+
+- hospital capacity  
+- ICU utilization  
+- pediatric and adult bed metrics  
+- staffing shortages  
+- COVID-related admissions and deaths  
+
+These models will ultimately support **weekly healthcare BI dashboards**.
+
+---
+
+### 3. Environment Stabilized & dbt Execution Path Finalized
+The project now runs consistently using the Python 3.11 dbt installation:
+
