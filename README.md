@@ -2,6 +2,7 @@
 
 Hello, my name is Vincent, and I am in a graduate program in data analytics, although I am very interested in data engineering as well.
 
+
 ## Active Projects
 
 ### Project 1: Social Media Trends & Amazon Sales Correlation
@@ -9,6 +10,9 @@ Capture data from social media trends and historical measures of Amazon sales. I
 
 ### Project 2: Creator Vault Risk Assessment Index
 Capture data from vault creators and create a robust risk assessment index based on historical data. My other friend is a software developer and is currently working on a public site that tests vaults and smart contracts.
+
+
+
 
 ---
 
@@ -23,6 +27,9 @@ My main goal is to see what works, what can be optimized, and to get a stable an
 | **Current Stack** | PowerBI, PostgreSQL, DBeaver, dbt |
 | **Upcoming** | Airflow, Docker, Airbyte |
 
+
+
+
 ---
 
 ## Repository Structure
@@ -34,6 +41,9 @@ My main goal is to see what works, what can be optimized, and to get a stable an
 * **/Statistics, Models, Theory**: Theoretical foundations and model notes.
 
 > **Note:** The Python, SQL, and Statistics folders are honestly pretty dated. I've learned a lot since then, but I had AI quiz me on Python and SQL before I started using them in tools.
+
+
+
 
 ---
 
