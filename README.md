@@ -1,58 +1,49 @@
-# Data Analytics & Analytics Engineering Portfolio
+# Data Analytics and Engineering Portfolio
 
-Hello, my name is **Vincent F**, and this repository documents my progression from foundational data analytics into **analytics engineering and data engineering**. Since starting this journey, I’ve expanded far beyond SQL and BI dashboards — I’m now building **end‑to‑end data pipelines**, practicing **ETL/ELT**, and designing **professional data models** using real engineering patterns.
+Hello, my name is Vincent, and I am in a graduate program in data analytics, although I am very interested in data engineering as well.
 
-I am also building a compact **home data engineering stack** (PostgreSQL, Linux, Docker, Airflow/Prefect, MinIO, dbt‑style modeling) so I can practice the full lifecycle of modern data workflows and architect my own miniature data warehouse.
+## 🚀 Active Projects
 
-This repository now includes:
+### Project 1: Social Media Trends & Amazon Sales Correlation
+Capture data from social media trends and historical measures of Amazon sales. I am trying to figure out how social media trends can correlate with sales spikes and if we can accurately predict them before they happen. This is highly applicable in my friends' business.
 
-- **Daily SQL and Python practice**
-- **Exploratory analysis and business logic development** WIP
-- **Power BI dashboards** WIP
-- **A full analytics engineering project**, including RAW → STAGING → CORE modeling WIP
-- **Star Schema design (fact + dimension tables)** WIP (within projects)
-- **Documentation, notes, and changelogs following enterprise conventions**
-
-The goal is to demonstrate not only technical skill, but also **my commitment to mastering the full analytics engineering pipeline**.
+### Project 2: Creator Vault Risk Assessment Index
+Capture data from vault creators and create a robust risk assessment index based on historical data. My other friend is a software developer and is currently working on a public site that tests vaults and smart contracts.
 
 ---
 
-## Repository Structure
+## 🛠 Engineering Roadmap
+As of right now, both projects will be housed in my laptop's DB, but I am planning on converting my old pc into a linux server. I am going to incorporate Airflow, Airbyte, Docker, dbt, and a multitude of other programs in my process. 
 
-As of **February 2026**, this repository includes:
+My main goal is to see what works, what can be optimized, and to get a stable and efficient ETL process that is fully automated. It will be really unoptimized at first, but I will update the repo as I go (or whenever I can).
 
-### **SQL/**
-- Query practice  
-- CTEs, joins, window functions  
-- Analytical SQL exercises  
-- Data modeling and transformation logic  
-
-### **Python/**
-WIP
-
-### **BI_Dashboards/**
-WIP
-
-### **Data_Engineering_Project/**
-*(New since January 2026)*  
-- RAW schema ingestion  
-- STAGING schema cleaning and standardization  
-- CORE schema (dbt‑style) star schema  
-- Fact and dimension table design  
-- Notes, changelogs, and modeling documentation  
+### Tech Stack
+| Category | Tools |
+| :--- | :--- |
+| **Current Stack** | PowerBI, PostgreSQL, DBeaver, dbt |
+| **Upcoming** | Airflow, Docker, Airbyte |
 
 ---
 
-## Tools & Skills
+## 📂 Repository Structure
 
-- SQL (analytics + modeling)  
-- Python (Pandas, NumPy, automation)  
-- Power BI  
-- Excel  
-- Data Modeling (Star Schema, fact/dim design)  
-- ETL/ELT workflows  
-- Schema design (RAW → STAGING → CORE → ANALYTICS)  
-- Analytics Engineering concepts  
-- Documentation and versioning  
+* **/BI Dashboards**: Visualizations and reporting.
+* **/Projects**: Core logic and pipeline code.
+* **/Python**: Archive of Python exercises and AI-quizzed logic.
+* **/SQL**: Historical SQL scripts and queries.
+* **/Statistics, Models, Theory**: Theoretical foundations and model notes.
 
-This repository will continue to evolve as I build more **end‑to‑end pipelines**, **BI dashboards**, and **data engineering projects**.
+> **Note:** The Python, SQL, and Statistics folders are honestly pretty dated. I've learned a lot since then, but I had AI quiz me on Python and SQL before I started using them in tools.
+
+---
+
+## 🤖 AI Usage & Ethics
+
+### AI Disclaimer
+I don't put any sensitive data in AI. If I need help with any sort of data-related tasks, I will return all the column names, describe the shape to AI, or provide any other pertinent characteristics, but not anything important. I work in healthcare right now and I know better than just dumping sensitive information where it doesn't belong. I am not stupid. This extends to any personal data that could get me in trouble. Simply put, I don't put actual files in AI or sensitive information. I describe what I need.
+
+### AI Assistants
+* **Gemini:** I use this AI to plan. Pretty solid for mapping everything out.
+* **Claude:** I used this model 100% for really tough coding or analytics.
+* **ChatGPT:** Good ol' reliable ChatGPT. I use this AI when I need a third AI for whatever reason (which is rare).
+* **Copilot:** Used to use Copilot a lot for quizzing myself and GitHub formatting. Maybe I'll start using this more with VSS, but I prefer other AIs.
