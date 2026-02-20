@@ -2,7 +2,7 @@
 
 Hello, my name is Vincent, and I am in a graduate program in data analytics, although I am very interested in data engineering as well.
 
-## 🚀 Active Projects
+## Active Projects
 
 ### Project 1: Social Media Trends & Amazon Sales Correlation
 Capture data from social media trends and historical measures of Amazon sales. I am trying to figure out how social media trends can correlate with sales spikes and if we can accurately predict them before they happen. This is highly applicable in my friends' business.
@@ -12,7 +12,7 @@ Capture data from vault creators and create a robust risk assessment index based
 
 ---
 
-## 🛠 Engineering Roadmap
+## Engineering Roadmap
 As of right now, both projects will be housed in my laptop's DB, but I am planning on converting my old pc into a linux server. I am going to incorporate Airflow, Airbyte, Docker, dbt, and a multitude of other programs in my process. 
 
 My main goal is to see what works, what can be optimized, and to get a stable and efficient ETL process that is fully automated. It will be really unoptimized at first, but I will update the repo as I go (or whenever I can).
@@ -25,7 +25,7 @@ My main goal is to see what works, what can be optimized, and to get a stable an
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 * **/BI Dashboards**: Visualizations and reporting.
 * **/Projects**: Core logic and pipeline code.
@@ -37,7 +37,7 @@ My main goal is to see what works, what can be optimized, and to get a stable an
 
 ---
 
-## 🤖 AI Usage & Ethics
+## AI Usage & Ethics
 
 ### AI Disclaimer
 I don't put any sensitive data in AI. If I need help with any sort of data-related tasks, I will return all the column names, describe the shape to AI, or provide any other pertinent characteristics, but not anything important. I work in healthcare right now and I know better than just dumping sensitive information where it doesn't belong. I am not stupid. This extends to any personal data that could get me in trouble. Simply put, I don't put actual files in AI or sensitive information. I describe what I need.
