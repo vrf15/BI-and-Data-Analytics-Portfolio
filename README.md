@@ -52,6 +52,8 @@ My main goal is to see what works, what can be optimized, and to get a stable an
 ### AI Disclaimer
 I don't put any sensitive data in AI. If I need help with any sort of data-related tasks, I will return all the column names, describe the shape to AI, or provide any other pertinent characteristics, but not anything important. I work in healthcare right now, and I know better than to just dump sensitive information where it doesn't belong. I am not stupid. This extends to any personal data that could get me in trouble. Simply put, I don't put actual files in AI or any sensitive information. I describe what I need.
 
+In regard to what AI platforms I use, I have only downloaded Claude and limited other AI usage to their browser versions. Claude itself is only able to look at specific folders within my computer.
+
 ### AI Assistants
 * **Gemini:** I use this AI to plan. Pretty solid for mapping everything out.
 * **Claude:** I used this model 100% for really tough coding or analytics.
