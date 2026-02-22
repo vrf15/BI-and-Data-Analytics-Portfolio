@@ -1,5 +1,3 @@
-# Social-to-Sales: Predictive E-Commerce Data Pipeline
-
 ### Project Overview
 
 Hello!
