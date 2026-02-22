@@ -54,12 +54,12 @@ Questions I am most interested in answering:
 
 ## Repository Structure
 ```bash
-├── airflow/               # DAG definitions and schedules
-├── dbt/                   # SQL models (staging, core, analytics), schema.yml, and tests
-├── dlt_scripts/           # Custom Python scripts for niche APIs
-├── r_analytics/           # Statistical models and CCF plots
-├── dashboards/            # Power BI (.pbix) and Tableau workbook references
-├── architecture_docs/     # ER diagrams (exported from DBeaver) and system maps
+├── airflow/              
+├── dbt/                   
+├── dlt_scripts/          
+├── r_analytics/           
+├── dashboards/            
+├── architecture_docs/    
 └── README.md
 ```
 
