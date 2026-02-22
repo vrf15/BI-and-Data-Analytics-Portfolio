@@ -18,7 +18,7 @@ This project is a professional-grade **ELT (Extract, Load, Transform)** pipeline
 | **Transformation** | **dbt (data build tool)** | SQL-based modeling (Staging -> Core -> Analytics) and documentation. |
 | **Modeling** | **R / RStudio** | Statistical modeling (CCF, Granger Causality) and predictive testing. |
 | **BI & Visualization** | **Power BI / Tableau** | Executive dashboards for trend monitoring and sales forecasting. |
-| **Ad-hoc Auditing** | **Microsoft Excel** | Rapid data validation and financial "sanity checks" of API outputs. |
+| **Ad-hoc Auditing** | **Microsoft Excel** | Rapid data validation and "sanity checks" of API outputs. |
 
 ---
 
