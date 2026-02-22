@@ -1,9 +1,14 @@
 # Social-to-Sales: Predictive E-Commerce Data Pipeline
 
 ### Project Overview
-This project is a professional-grade **ELT (Extract, Load, Transform)** pipeline designed to identify the correlation between social media trends (TikTok, Meta, Snapchat) and Amazon sales throughput. By engineering a robust data infrastructure, this platform will identify actionable sales spikes, calculate the time-lag between "virality" and "conversion," and provide data-driven business intelligence.
 
-**Goal:** To build a scalable data engineering portfolio demonstrating the orchestration of complex multi-source API ingestion, transformation, and multi-tool visualization.
+Hello!
+
+One of my friends was recently describing their manufacturing business, and we came up with the idea of implementing data analytics and engineering principles into their practices. We plan on creating dashboards that closely monitor trends in social media that specifically correlate with spikes in Amazon sales.
+
+I'm personally very interested in this project because it requires robust data engineering principles to create and maintain. I also have to draw from data scientific principles by using statistical modeling to correlate the measures we obtain from the APIs monitoring social media trends with the APIs monitoring Amazon throughput. Finally, once we find useful measures to draw from and accurately predict the spikes, we'll see if it is feasible to create business directives from this.
+
+I think the biggest hurdle so far is finding public APIs that monitor trends in social media platforms and identifying measures that can accurately, quickly, and repeatedly predict the spikes. Some of my personal worries are categorizing trends by types and identifying items that are affiliated with them. It will be easier once a lot of the incoming measures are tested to draw for moore insightful conclusions. I suspect that we will have to divide trends into categories (memes, entertainment, drama, etc.) and identify which items spike up in Amazon based off of the categories.
 
 ---
 
@@ -11,42 +16,41 @@ This project is a professional-grade **ELT (Extract, Load, Transform)** pipeline
 
 | Layer | Tool | Purpose |
 | :--- | :--- | :--- |
-| **Orchestration** | **Apache Airflow** | Workflow management and DAG scheduling. |
-| **Ingestion (SaaS)** | **Airbyte** | Standardized connector management for APIs. |
-| **Ingestion (Custom)** | **dlt (data load tool)** | Python-based schema-on-read for intricate/nested API data. |
-| **Storage & IDE** | **PostgreSQL + DBeaver** | Primary RDBMS managed via DBeaver for SQL development/querying. |
-| **Transformation** | **dbt (data build tool)** | SQL-based modeling (Staging -> Core -> Analytics) and documentation. |
-| **Modeling** | **R / RStudio** | Statistical modeling (CCF, Granger Causality) and predictive testing. |
-| **BI & Visualization** | **Power BI / Tableau** | Executive dashboards for trend monitoring and sales forecasting. |
-| **Ad-hoc Auditing** | **Microsoft Excel** | Rapid data validation and "sanity checks" of API outputs. |
+| **Orchestration** | **Apache Airflow** | Scheduling |
+| **Ingestion (SaaS)** | **Airbyte** | Standardized API management |
+| **Ingestion (Custom)** | **dlt (data load tool)** | API pulls by python scripts (reserved for tricky API pulls). |
+| **Storage & IDE** | **PostgreSQL + DBeaver** | Primary server + SQL IDE. |
+| **Transformation** | **dbt (data build tool)** | Data transformation and documentation. |
+| **Modeling** | **R / RStudio** | Statistical modeling and predictive testing. |
+| **BI & Visualization** | **Power BI / Tableau** | Dashboards creation for monitoring (mainly for my client) |
+| **Ad-hoc Auditing** | **Microsoft Excel** | Manual checks performed by me |
 
 ---
 
 ## Data Architecture (Medallion Framework)
-The data pipeline follows a structured evolution from raw ingestion to high-level analytical modeling, managed and queried through **DBeaver**:
 
-1. **RAW Layer (Bronze):** Untouched API responses. This layer focuses on high-volume, schema-flexible storage designed for data recovery and auditing.
-2. **STAGING Layer (Silver):** Initial cleanup via **dbt**. Processes include standardizing column names, casting data types (e.g., ISO dates), and de-duplication. **Excel** is utilized at this stage for manual data quality audits.
-3. **CORE Layer (Silver+):** The "Source of Truth." Social metrics and Amazon sales records are normalized and related through surrogate keys to ensure data integrity.
-4. **ANALYTICS Layer (Gold):** Flattened, performant tables (Star Schema). This layer feeds **RStudio** for deep statistics and **Power BI/Tableau** for real-time trend visualization.
+SCHEMAS
+1. RAW       -> All of my data indigestion goes here
+2. STAGING   -> Where the data is validated
+3. CORE      -> Further clean up
+4. ANALYTICS -> Will mostly be comprised of data formatted towards R-Studios at first, but will eventually have finalized data sets for dashboard creation.
 
 ---
 
 ## Engineering Highlights
-* **SQL Development:** Use of **DBeaver** for database administration, ER diagram generation, and complex query optimization.
-* **Idempotent Pipelines:** Airflow DAGs are designed to ensure rerunning tasks prevents data duplication in the RAW layer.
-* **Schema Evolution:** Leveraging **dlt** to handle changing API payloads without requiring manual SQL schema updates.
-* **BI Integration:** Development of relational models in **Power BI and Tableau** to visualize the "Lag-Time" between social virality and Amazon conversion.
-* **Data Quality:** Implementation of `dbt` test suites to catch null values and broken relationships before data reaches the ANALYTICS layer.
+* **Automated Pipelines**
+* **dbt Transformations and Documentations**
+* **BI Integration**
+* **Holistic Approach**
 
 ---
 
 ## Key Research Questions
 The analytical layer aims to answer:
-1. **The Lag Factor:** How many days or hours pass between a social trend peak and an Amazon sales spike?
-2. **Channel Attribution:** Which platform (TikTok vs. Meta) shows the highest correlation coefficient with Amazon throughput?
-3. **Visual Predictive Analysis:** Can a dashboard be built to flag "Buy" or "Sell" signals based on real-time social sentiment?
-
+1. **The Lag Factor:** How long does it take to see an Amazon spike after something trends in social media?
+2. **Channel Attribution:** Which platform (TikTok vs Meta, for example) shows the highest correlation coefficient with Amazon throughput?
+3. **Visual Predictive Analysis:** How can we create dashboards to drive my friends' business?
+   
 ---
 
 ## Repository Structure
