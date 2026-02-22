@@ -64,3 +64,11 @@ The analytical layer aims to answer:
 Findings & Data: Due to the proprietary nature of the findings and API credentials, the raw data, sensitive API keys, and specific business directives are excluded from this public repository. This repo serves as a technical showcase of architecture and pipeline logic.
 
 Ethics & Legality: This project is built with a strict adherence to data privacy and terms of service. All data ingestion methods utilized in this project are strictly public, legal, and compliant with the respective platform's API documentation and Terms of Service. No unauthorized data extraction or "black-hat" scraping methods are employed.
+
+## Security and Data Privacy
+To protect proprietary business intelligence and sensitive credentials, this repository follows industry-standard security protocols:
+
+* **Environment Variables:** All API keys and database credentials are managed via `.env` files and are never hard-coded into scripts.
+* **Credential Masking:** A `.gitignore` configuration ensures that local configuration files (e.g., `profiles.yml`, `.env`) and raw data files (`.csv`, `.json`) are never committed to the version history.
+* **Data Anonymization:** While the pipeline architecture is public, the underlying sales figures and specific product categories are anonymized or replaced with synthetic data to protect business directives.
+* **Credential Rotation:** In the event of a security audit, all keys are rotated to ensure the integrity of the production environment.
