@@ -46,10 +46,11 @@ SCHEMAS
 ---
 
 ## Key Research Questions
-The analytical layer aims to answer:
-1. **The Lag Factor:** How long does it take to see an Amazon spike after something trends in social media?
-2. **Channel Attribution:** Which platform (TikTok vs Meta, for example) shows the highest correlation coefficient with Amazon throughput?
-3. **Visual Predictive Analysis:** How can we create dashboards to drive my friends' business?
+Questions I am most interested in answering:
+
+1. How long does it take to see an Amazon spike after something trends on social media? Can we beat this lag time?
+2. Which platform (TikTok vs Meta, for example) shows the highest correlation coefficient with Amazon throughput?
+3. How can we create dashboards to drive my friends' business?
    
 ---
 
@@ -63,6 +64,8 @@ The analytical layer aims to answer:
 ├── architecture_docs/     # ER diagrams (exported from DBeaver) and system maps
 └── README.md
 ```
+
+
 
 ## Privacy & Compliance Disclosure
 Findings & Data: Due to the proprietary nature of the findings and API credentials, the raw data, sensitive API keys, and specific business directives are excluded from this public repository. This repo serves as a technical showcase of architecture and pipeline logic.
