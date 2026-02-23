@@ -10,8 +10,8 @@ I will be maintaining the data pipelines upon creation, add new ones connections
 
 ## Programs-In Use
 
-| Layer | Tool | Purpose |
-| :--- | :--- | :--- |
+| Layer | Tool | 
+| :--- | :--- | 
 | **Orchestration** | **Apache Airflow** | 
 | **Ingestion (SaaS)** | **Airbyte** | 
 | **Ingestion (Custom)** | **dlt (data load tool)** | 
