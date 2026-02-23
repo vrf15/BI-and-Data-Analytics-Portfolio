@@ -26,10 +26,10 @@ I will be maintaining the data pipelines upon creation, add new ones connections
 ## Data Architecture (Medallion Framework)
 
 SCHEMAS
-1. RAW       -> All of my data indigestion goes here
-2. STAGING   -> Where the data is validated
-3. CORE      -> Further clean up
-4. ANALYTICS -> Will mostly be comprised of data formatted towards R-Studios at first, but will eventually have finalized data sets for dashboard creation.
+1. RAW       
+2. STAGING   
+3. CORE      
+4. ANALYTICS 
 
 ---
 
