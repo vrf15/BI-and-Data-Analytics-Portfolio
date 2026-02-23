@@ -36,7 +36,7 @@ SCHEMAS
 ## Engineering Highlights
 * **Automated Pipelines**
 * **dbt Transformations and Documentations**
-* **Inter-disciplinary Approach (Between a Data Professional and a Software Engineer)
+* **Inter-disciplinary Approach (Between a Data Professional and a Software Engineer)**
 * **BI Integration**
 * **Holistic Approach**
    
